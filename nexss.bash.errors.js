@@ -1,3 +1,3 @@
 module.exports = {
-  "?: (.*?): command not found": "nexss sh install <module>"
+  "[0-9]: (.*?): command not found": "nexss sh install <module>"
 };
