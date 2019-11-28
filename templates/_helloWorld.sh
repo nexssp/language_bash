@@ -14,7 +14,7 @@
 
 NexssStdin=`cat`
 # Modify Data
-NexssStdout=$(echo "$NexssStdin"|jq ".outputBash = \"Hello from Bash! $BASH_VERSION\"")
+NexssStdout=$(echo "$NexssStdin"|jq ".HelloFromBash = \"$BASH_VERSION\"")
 
 # STDOUT
 echo $NexssStdout>&1
