@@ -1,5 +1,7 @@
 # Bash - Nexss PROGRAMMER 2.0 Notes
 
+To Install Nexss Programmer please go to [Nexss Programmer CLI](https://github.com/nexssp/cli#readme) for more information.
+
 ## WSL (Windows Subsystem Linux)
 
 You may need to enable WSL (Windows Subsystem Linux):
