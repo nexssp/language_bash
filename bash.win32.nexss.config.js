@@ -7,7 +7,7 @@ languageConfig.extensions = [".sh"];
 languageConfig.builders = {};
 languageConfig.compilers = {
   bash: {
-    install: "enable-wsl.ps1",
+    install: `Powershell -ExecutionPolicy Bypass -noexit -File ${__dirname}/install/enableWSL.ps1`,
     command: "bash",
     args: "<file>",
     help: ``
