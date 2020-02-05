@@ -10,10 +10,18 @@ You may need to enable WSL (Windows Subsystem Linux):
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
 ```
 
+```sh
+if grep -q Microsoft /proc/version; then
+  printf "NEXSS/ok:Linux on Windows\n\r" >&2
+else
+  printf "NEXSS/ok:Native Linux\n" >&2
+fi
+```
+
 ## Json - jq
 
 ```sh
-scoop install jq
+nexss sh install jq
 
 # pretty print json
 curl 'https://api.github.com/repos/stedolan/jq/commits?per_page=5' | jq '.'
@@ -29,6 +37,10 @@ jq '.[] | {message: .commit.message, name: .commit.committer.name}'
 
 # stream with collect [....]
 jq '[.[] | {message: .commit.message, name: .commit.committer.name}]'
+
+# select command
+
+jq '.data[]  | select(.DOMAIN == "domain2") | .DOMAINID'
 
 # more here:
 https://stedolan.github.io/jq/tutorial/
