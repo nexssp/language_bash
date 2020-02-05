@@ -10,12 +10,22 @@ You may need to enable WSL (Windows Subsystem Linux):
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
 ```
 
+## Check Windows Or Linux
+
 ```sh
 if grep -q Microsoft /proc/version; then
   printf "NEXSS/ok:Linux on Windows\n\r" >&2
 else
   printf "NEXSS/ok:Native Linux\n" >&2
 fi
+```
+
+## Change to Windows Folder on Bash
+
+```sh
+cdw() { cd "$(wslpath "$1")"; }
+myFolder="c:\\windows\\system32\\"
+cwd $myFolder # Will translate change dir without errors "not found"
 ```
 
 ## Json - jq
