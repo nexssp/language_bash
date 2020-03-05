@@ -3,6 +3,9 @@ languageConfig.title = "Bash";
 languageConfig.description =
   "Bash is the GNU Project's shell. Bash is the Bourne Again SHell. Bash is an sh-compatible shell that incorporates useful features from the Korn shell (ksh) and C shell (csh).";
 languageConfig.url = "https://www.gnu.org/software/bash/";
+languageConfig.founders = ["Brian Fox", "Chet Ramey"];
+languageConfig.developers = [""];
+languageConfig.years = ["1989"];
 languageConfig.extensions = [".sh"];
 languageConfig.builders = {};
 languageConfig.compilers = {
