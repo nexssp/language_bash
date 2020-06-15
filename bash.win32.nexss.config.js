@@ -12,7 +12,7 @@ languageConfig.compilers = {
   wsl: {
     install: `Powershell -ExecutionPolicy Bypass -noexit -File ${__dirname}/install/enableWSL.ps1`,
     command: "wsl",
-    args: "./<file>",
+    args: "<file>",
     help: ``,
   },
   bash: {
