@@ -10,6 +10,14 @@ You may need to enable WSL (Windows Subsystem Linux):
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
 ```
 
+### Install without store
+
+```ps1
+Invoke-WebRequest -Uri https://aka.ms/wsl-ubuntu-1604 -OutFile Ubuntu.appx -UseBasicParsing
+```
+
+more here: <https://docs.microsoft.com/en-us/windows/wsl/install-manual>
+
 ## Check Windows Or Linux
 
 ```sh

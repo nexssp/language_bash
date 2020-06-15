@@ -9,12 +9,18 @@ languageConfig.years = ["1989"];
 languageConfig.extensions = [".sh"];
 languageConfig.builders = {};
 languageConfig.compilers = {
+  wsl: {
+    install: `Powershell -ExecutionPolicy Bypass -noexit -File ${__dirname}/install/enableWSL.ps1`,
+    command: "wsl",
+    args: "./<file>",
+    help: ``,
+  },
   bash: {
     install: `Powershell -ExecutionPolicy Bypass -noexit -File ${__dirname}/install/enableWSL.ps1`,
     command: "bash",
     args: "<file>",
-    help: ``
-  }
+    help: ``,
+  },
 };
 languageConfig.errors = require("./nexss.bash.errors");
 languageConfig.languagePackageManagers = {
@@ -33,8 +39,8 @@ languageConfig.languagePackageManagers = {
     },
     // if command not found in specification
     // run directly on package manager
-    else: "vcpkg"
-  }
+    else: "vcpkg",
+  },
 };
 
 module.exports = languageConfig;
