@@ -16,7 +16,7 @@ Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-L
 Invoke-WebRequest -Uri https://aka.ms/wsl-ubuntu-1604 -OutFile Ubuntu.appx -UseBasicParsing
 ```
 
-more here: <https://docs.microsoft.com/en-us/windows/wsl/install-manual>
+more here: <https://docs.microsoft.com/en-us/windows/wsl/install-manual> OR <https://docs.microsoft.com/en-us/windows/wsl/install-win10>
 
 ## Check Windows Or Linux
 
