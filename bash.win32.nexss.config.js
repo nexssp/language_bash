@@ -1,4 +1,7 @@
-let languageConfig = Object.assign({}, require("../config.win32"));
+let languageConfig = Object.assign(
+  {},
+  require(`../config.${process.platform}`)
+);
 languageConfig.title = "Bash";
 languageConfig.description =
   "Bash is the GNU Project's shell. Bash is the Bourne Again SHell. Bash is an sh-compatible shell that incorporates useful features from the Korn shell (ksh) and C shell (csh).";
@@ -34,12 +37,12 @@ languageConfig.languagePackageManagers = {
     help: "scoop --help",
     version: "scoop --version",
     init: () => {
-      require("child_process").execSync("vcpkg integrate project");
-      console.log("initialized vcpkg project.");
+      // require("child_process").execSync("vcpkg integrate project");
+      // console.log("initialized vcpkg project.");
     },
     // if command not found in specification
     // run directly on package manager
-    else: "vcpkg",
+    else: "scoop",
   },
 };
 
