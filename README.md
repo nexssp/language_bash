@@ -1,4 +1,4 @@
-# Bash - Nexss PROGRAMMER 2.0 Notes
+# Bash - Nexss PROGRAMMER 2.x Notes
 
 To Install Nexss Programmer please go to [Nexss Programmer CLI](https://github.com/nexssp/cli#readme) for more information.
 
@@ -16,7 +16,7 @@ Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-L
 Invoke-WebRequest -Uri https://aka.ms/wsl-ubuntu-1604 -OutFile Ubuntu.appx -UseBasicParsing
 ```
 
-more here: <https://docs.microsoft.com/en-us/windows/wsl/install-manual>
+more here: <https://docs.microsoft.com/en-us/windows/wsl/install-manual> OR <https://docs.microsoft.com/en-us/windows/wsl/install-win10>
 
 ## Check Windows Or Linux
 
