@@ -8,8 +8,8 @@ languageConfig.compilers = {
   },
 };
 languageConfig.languagePackageManagers = {
-  scoop: {
-    installation: `iex (new-object net.webclient).downloadstring('https://get.scoop.sh')`,
+  apt: {
+    installation: `installed`,
     messageAfterInstallation: "", //this message will be displayed after this package manager installation, maybe some action needed etc.
     installed: "apt list --installed",
     search: "apt-cache search",
@@ -18,8 +18,6 @@ languageConfig.languagePackageManagers = {
     help: "apt --help",
     version: "apt --version",
     init: () => {},
-    // if command not found in specification
-    // run directly on package manager
     else: "apt",
   },
 };
