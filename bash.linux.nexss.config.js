@@ -1,25 +1,33 @@
 let languageConfig = Object.assign({}, require("./bash.win32.nexss.config"));
+
+let sudo = "sudo ";
+if (process.getuid && process.getuid() === 0) {
+  sudo = "";
+}
+
 languageConfig.compilers = {
   bash: {
-    install: `sudo apt update && sudo apt install bash`,
+    install: `${sudo}apt update 
+${sudo}apt install bash`,
     command: "bash",
     args: "<file>",
     help: ``,
   },
 };
-languageConfig.languagePackageManagers = {
-  apt: {
-    installation: `installed`,
-    messageAfterInstallation: "", //this message will be displayed after this package manager installation, maybe some action needed etc.
-    installed: "apt list --installed",
-    search: "apt-cache search",
-    install: "apt install",
-    uninstall: "apt uninstall",
-    help: "apt --help",
-    version: "apt --version",
-    init: () => {},
-    else: "apt",
-  },
-};
+
+const {
+  replaceCommandByDist,
+  dist,
+} = require(`${process.env.NEXSS_SRC_PATH}/lib/osys`);
+const distName = dist();
+
+// TODO: Later to cleanup this config file !!
+switch (distName) {
+  default:
+    languageConfig.compilers.bash.install = replaceCommandByDist(
+      languageConfig.compilers.bash.install
+    );
+    break;
+}
 
 module.exports = languageConfig;
