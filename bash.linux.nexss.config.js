@@ -1,9 +1,8 @@
 let languageConfig = Object.assign({}, require("./bash.win32.nexss.config"));
 
-let sudo = "sudo ";
-if (process.getuid && process.getuid() === 0) {
-  sudo = "";
-}
+const distName = process.distro;
+const version = process.distroVersion;
+const sudo = process.sudo;
 
 languageConfig.compilers = {
   bash: {
@@ -15,19 +14,25 @@ ${sudo}apt install bash`,
   },
 };
 
-const {
-  replaceCommandByDist,
-  dist,
-} = require(`${process.env.NEXSS_SRC_PATH}/lib/osys`);
-const distName = dist();
+languageConfig.compilers.bash.install = process.replacePMByDistro(
+  languageConfig.compilers.bash.install
+);
 
-// TODO: Later to cleanup this config file !!
-switch (distName) {
-  default:
-    languageConfig.compilers.bash.install = replaceCommandByDist(
-      languageConfig.compilers.bash.install
-    );
-    break;
-}
+languageConfig.languagePackageManagers = {
+  apt: {
+    installation: `iex (new-object net.webclient).downloadstring('https://get.scoop.sh')`,
+    messageAfterInstallation: "", //this message will be displayed after this package manager installation, maybe some action needed etc.
+    installed: process.replacePMByDistro("apt list --installed"),
+    search: process.replacePMByDistro("apt search"),
+    install: process.replacePMByDistro("apt install -y"),
+    uninstall: process.replacePMByDistro("apt remove -y"),
+    help: process.replacePMByDistro("apt help"),
+    version: process.replacePMByDistro("apt install -y"),
+    init: () => {
+      // require("child_process").execSync("vcpkg integrate project");
+      // console.log("initialized vcpkg project.");
+    },
+  },
+};
 
 module.exports = languageConfig;
