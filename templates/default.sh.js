@@ -9,12 +9,9 @@ if (process.platform === "win32") {
     repos: [],
   };
 } else {
-  const {
-    replaceCommandByDist,
-  } = require(`${process.env.NEXSS_SRC_PATH}/lib/osys`);
   config = {
     files: [],
-    commands: [replaceCommandByDist("apt-get install -y jq")],
+    commands: [process.replacePMByDistro("apt-get install -y jq")],
     repos: [],
   };
 }
